@@ -13,7 +13,7 @@ const dirAssets = path.join(__dirname, 'assets');
 module.exports = env => {
     // Is the current build a development build
     const IS_DEV = !!env.dev;
-    
+
     return {
 
         entry: {
@@ -31,7 +31,7 @@ module.exports = env => {
 
         plugins: [
             new webpack.DefinePlugin({ IS_DEV }),
-    
+
             new HtmlWebpackPlugin({
                 template: path.join(__dirname, 'index.ejs'),
                 title: 'Webpack Boilerplate'
@@ -40,7 +40,7 @@ module.exports = env => {
 
         module: {
             rules: [
-                // BABEL    
+                // BABEL
                 {
                     test: /\.m?js$/,
                     exclude: /(node_modules)/,
@@ -51,7 +51,7 @@ module.exports = env => {
                         }
                     }
                 },
-    
+
                 // STYLES
                 {
                     test: /\.css$/,
@@ -65,7 +65,7 @@ module.exports = env => {
                         },
                     ]
                 },
-    
+
                 // CSS / SASS
                 {
                     test: /\.scss/,
@@ -88,7 +88,7 @@ module.exports = env => {
                         }
                     ]
                 },
-    
+
                 // IMAGES
                 {
                     test: /\.(png|jpe?g|gif)$/i,
@@ -98,13 +98,20 @@ module.exports = env => {
                             name: '[path][name].[ext]'
                         }
                     }
-                }
+                },
+                {
+                    test: /\.(eot|svg|ttc|ttf|woff|woff2)$/,
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]'
+                    }
+                },
             ]
         },
 
         optimization: {
             runtimeChunk: 'single'
         }
-        
+
     };
 };

@@ -1,9 +1,180 @@
-// Apply a natural box layout model to all elements
-// but allowing components to change
-// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-html {
-    box-sizing: border-box;
+@import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+@font-face {
+    font-family: "Cambria";
+    src: url("../../assets/fonts/cambria.ttc");
 }
-*, *:before, *:after {
-    box-sizing: inherit;
+@font-face {
+    font-family: "CambriaB";
+    src: url("../../assets/fonts/cambriab.ttf");
+}
+@font-face {
+    font-family: "CambriaI";
+    src: url("../../assets/fonts/cambriai.ttf");
+}
+@font-face {
+    font-family: "CambriaZ";
+    src: url("../../assets/fonts/cambriaz.ttf");
+}
+@font-face {
+    font-family: "Test";
+    src: url("../../assets/fonts/Gilroy-Medium.ttf");
+}
+html, body, .content {
+    height: 100%;
+}
+body {
+    font-family: Cambria;
+    font-size: 16px;
+    background: #020202 url("../../assets/images/bg.png") center top no-repeat;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    max-height: 1080px;
+    padding: 0 70px 58px;
+    margin: 0 auto;
+    background: url("../../assets/images/bg_wicther.png") 116px 0 no-repeat;
+    @media screen and (max-width: 1140px) {
+        background-position: center top;
+    }
+    @media screen and (max-width: 660px) {
+        padding: 150px 10px 20px;
+        background-position: center -100px;
+        height: auto;
+    }
+    .main {
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        @media screen and (max-width: 1140px) {
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 50px;
+        }
+    }
+    .footer {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @media screen and (max-width: 660px) {
+            flex-direction: column;
+            align-items: center;
+        }
+        span {
+            font-size: 14px;
+            font-family: 'Arial';
+            color: #464646;
+            @media screen and (max-width: 660px) {
+                padding: 10px 0;
+            }
+        }
+    }
+}
+.offer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 910px;
+    padding: 0 150px 130px;
+    @media screen and (max-width: 1140px) {
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.65);
+        border-radius: 50px;
+        width: auto;
+        max-width: inherit;
+    }
+    @media screen and (max-width: 660px) {
+        width: 100%;
+    }
+    &-title {
+        color: #fff;
+        line-height: 53pt;
+        font-size: 43.58pt;
+        font-weight: bold;
+        font-family: CambriaB;
+        text-transform: uppercase;
+        text-align: center;
+        text-shadow: 0 16px 24px rgba(0, 0, 0, 1);
+        padding-bottom: 60px;
+        span {
+            font-size: 163.55pt;
+        }
+        @media screen and (max-width: 660px) {
+            font-size: 35px;
+            line-height: 60px;
+            padding-bottom: 30px;
+            span {
+                font-size: 60px;
+            }
+        }
+    }
+    &-bonus {
+        display: flex;
+        align-items: stretch;
+        width: 467px;
+        height: 80px;
+        margin-bottom: 62px;
+        border: 1px dashed rgb(70, 70, 70);
+        border-radius: 100px;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.5);
+        @media screen and (max-width: 660px) {
+            width: 300px;
+        }
+        &-code {
+            display: flex;
+            align-items: center;
+            width: 270px;
+            padding-left: 39px;
+            border-right: 1px solid rgb(70, 70, 70);
+            font-family: 'Arial';
+            font-size: 40px;
+            text-transform: uppercase;
+            color: #f73427;
+            @media screen and (max-width: 660px) {
+                font-size: 20px;
+                width: 200px;
+            }
+        }
+        &-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 197px;
+            color: #fff;
+            font-size: 18px;
+            font-family: 'Arial';
+            text-transform: uppercase;
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+    &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 360px;
+        height: 80px;
+        color: #fff;
+        font-size: 20px;
+        font-family: 'Arial';
+        text-decoration: none;
+        text-transform: uppercase;
+        background: #f73427;
+        border-radius: 100px;
+        box-shadow: 0 16px 24px rgba(0, 0, 0, 1);
+        margin-bottom: 41px;
+        @media screen and (max-width: 660px) {
+            width: 250px;
+            height: 60px;
+        }
+    }
 }
